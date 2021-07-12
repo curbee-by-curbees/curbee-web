@@ -1,9 +1,9 @@
 import request from 'superagent';
-// const API = 'https://curbee-dev.herokuapp.com/api/v1';
+const API = 'http://localhost:7890';
 
 export async function signUp(credentials) {
   const response = await request
-    .post('http://localhost:7890/api/v1/auth/signup')
+    .post(API + '/api/v1/auth/signup')
     .ok(res => res.status < 500)
     .send({
       username: credentials.username,
@@ -20,7 +20,7 @@ export async function signUp(credentials) {
 
 export async function login(credentials) {
   const response = await request 
-    .post('http://localhost:7890/api/v1/auth/login')
+    .post(API + '/api/v1/auth/login')
     .ok(res => res.status < 500)
     .send(credentials);
 
