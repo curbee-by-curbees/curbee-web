@@ -17,7 +17,7 @@ export default class AuthPage extends Component {
 
   handleSubmit = async e => {
     const { isSignUp } = this.state;
-    const { history } = this.props;
+    const { onUser, history } = this.props;
 
     e.preventDefault();
 
