@@ -6,7 +6,7 @@ export async function signUp(credentials) {
     .ok(res => res.status < 500)
     .send({
       username: credentials.username,
-      password: credentials.password,
+      passwordHash: credentials.passwordHash,
       phoneNumber: credentials.phoneNumber 
     });
 

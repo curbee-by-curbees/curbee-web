@@ -1,9 +1,17 @@
 .Header {
-  padding: 20px;
-  border-bottom: 1px solid lightgray;
+  border-bottom: 2px solid floralwhite;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
 }
 
 h1 {
-  font-size: 2rem;
-  font-weight: bold;
+  font-size: 3.5rem;
+  font-weight: normal;
+  font-family: 'Benne', serif;
+  margin: 0;
 }

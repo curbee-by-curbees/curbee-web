@@ -6,7 +6,7 @@ export default class AuthPage extends Component {
   state = {
     isSignUp: true,
     username: '',
-    password: '',
+    passwordHash: '',
     phoneNumber: '',
     error: ''
   }
@@ -37,11 +37,11 @@ export default class AuthPage extends Component {
   }
 
   handleUsernameChange = ({ target }) => {
-    this.setState({ name: target.value });
+    this.setState({ username: target.value });
   }
 
   handlePasswordChange = ({ target }) => {
-    this.setState({ password: target.value });
+    this.setState({ passwordHash: target.value });
   }
 
   handlePhoneNumberChange = ({ target }) => {
@@ -49,32 +49,32 @@ export default class AuthPage extends Component {
   }
 
   render() {
-    const { isSignUp, username, password, phoneNumber, error } = this.state;
+    const { isSignUp, username, passwordHash, phoneNumber, error } = this.state;
 
     return (
       <form className="AuthPage" onSubmit={this.handleSubmit}>
         {isSignUp && <p>
           <label>
-            <span>phone number</span>
+            
             <input name="phoneNumber" type="phoneNumber" required={true}
-              value={phoneNumber} onChange={this.handlePhoneNumberChange} />
+              value={phoneNumber} placeholder="Phone Number" onChange={this.handlePhoneNumberChange} />
           </label>
         </p>
         }
 
         <p>
           <label>
-            <span>username</span>
-            <input name="name" value={username} required={true}
-              onChange={this.handleUsernameChange} />
+            
+            <input name="username" value={username} required={true}
+              placeholder="Username" onChange={this.handleUsernameChange} />
           </label>
         </p>
 
         <p>
           <label>
-            <span>password</span>
-            <input name="password" type="password" required={true}
-              value={password} onChange={this.handlePasswordChange} />
+            
+            <input name="passwordHash" type="password" required={true}
+              value={passwordHash} placeholder="Password" onChange={this.handlePasswordChange} />
           </label>
         </p>
 

@@ -1,3 +1,20 @@
+
+
 .Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   
+  
+}
+
+h2 {
+    font-family: 'Benne', serif;
+    font-size: 2rem;
+}
+
+a {
+    color: floralwhite;
+    font-size: 1.1rem;
+    margin-top: 1rem;
 }

@@ -7,7 +7,7 @@ class Header extends Component {
     return (
       <header className="Header">
 
-        <h1>curbee</h1>
+        <h1>Curbee</h1>
         
       </header>
     );
