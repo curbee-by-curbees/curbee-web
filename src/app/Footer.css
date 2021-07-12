@@ -1,10 +1,31 @@
 .Footer {
   border-top: 2px solid floralwhite;
   width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   height: 20vh;
 
+}
+
+.footer-logo {
+  font-size: 1.5rem;
+  padding: 3rem;
+}
+
+.footer-description {
+  font-size: 0.6rem;
+  padding-top: 3rem;
+  padding-right: 1rem;
+  line-height: 0.8rem;
+}
+
+.footer-link {
+  font-size: 0.6rem;
+  text-decoration: underline;
+  margin-right: 0.5rem;
+}
+
+.red {
+  color: rgb(216, 140, 140);
+  font-family: 'Times New Roman', serif;
 }
