@@ -7,9 +7,10 @@ export default class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <h2>Home Page</h2>
+        <h2>welcome to curbee</h2>
+        <h3>login in below</h3>
 
-        <Link to='/resources'>See the List</Link>
+        <Link to='/auth'>login here!</Link>
       </div>
     );
   }
