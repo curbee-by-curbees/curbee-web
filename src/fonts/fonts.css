@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Benne";
+    src: url("./Benne-Regular.ttf") format('ttf');
+}
+
+@font-face {
+    font-family: "Fakt Pro";
+    src: url("./FaktPro-Normal.woff") format('woff');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Tenor Sans";
+    src: url("./TenorSans-Regular.ttf") format('ttf');
+    font-weight: normal;
+    
+}
