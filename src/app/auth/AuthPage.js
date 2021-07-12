@@ -6,7 +6,7 @@ export default class AuthPage extends Component {
   state = {
     isSignUp: true,
     username: '',
-    passwordHash: '',
+    password: '',
     phoneNumber: '',
     error: ''
   }
@@ -17,7 +17,7 @@ export default class AuthPage extends Component {
 
   handleSubmit = async e => {
     const { isSignUp } = this.state;
-    const { onUser, history } = this.props;
+    const { history } = this.props;
 
     e.preventDefault();
 
@@ -41,7 +41,7 @@ export default class AuthPage extends Component {
   }
 
   handlePasswordChange = ({ target }) => {
-    this.setState({ passwordHash: target.value });
+    this.setState({ password: target.value });
   }
 
   handlePhoneNumberChange = ({ target }) => {
@@ -49,7 +49,7 @@ export default class AuthPage extends Component {
   }
 
   render() {
-    const { isSignUp, username, passwordHash, phoneNumber, error } = this.state;
+    const { isSignUp, username, password, phoneNumber, error } = this.state;
 
     return (
       <form className="AuthPage" onSubmit={this.handleSubmit}>
@@ -73,8 +73,8 @@ export default class AuthPage extends Component {
         <p>
           <label>
             
-            <input name="passwordHash" type="password" required={true}
-              value={passwordHash} placeholder="Password" onChange={this.handlePasswordChange} />
+            <input name="password" type="password" required={true}
+              value={password} placeholder="Password" onChange={this.handlePasswordChange} />
           </label>
         </p>
 
