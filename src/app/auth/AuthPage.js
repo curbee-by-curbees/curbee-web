@@ -55,11 +55,20 @@ export default class AuthPage extends Component {
       <form className="AuthPage" onSubmit={this.handleSubmit}>
         {isSignUp && <p>
           <label>
+            <span>phone number</span>
+            <input name="phoneNumber" type="phoneNumber" required={true}
+              value={phoneNumber} onChange={this.handlePhoneNumberChange} />
+          </label>
+        </p>
+        }
+
+        <p>
+          <label>
             <span>username</span>
             <input name="name" value={username} required={true}
               onChange={this.handleUsernameChange} />
           </label>
-        </p>}
+        </p>
 
         <p>
           <label>
@@ -69,13 +78,8 @@ export default class AuthPage extends Component {
           </label>
         </p>
 
-        <p>
-          <label>
-            <span>phone number</span>
-            <input name="phoneNumber" type="phoneNumber" required={true}
-              value={phoneNumber} onChange={this.handlePhoneNumberChange} />
-          </label>
-        </p>
+
+
 
         <p>
           <button type="submit">Sign {isSignUp ? 'Up' : 'In'}</button>
