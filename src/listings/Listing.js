@@ -10,8 +10,8 @@ export default class Listing extends Component {
     return (
       <li className="Listing">
         <img src={find.photos[0]} alt={find.title}/>
-        <Link to={`/listings/${find.id}`}>{find.title}</Link>
-        <span>({find.city})</span>
+        <Link className='find-link' to={`/listings/${find.id}`}>{find.title}</Link>
+        <span className='city'>({find.city})</span>
       </li>
     );
   }

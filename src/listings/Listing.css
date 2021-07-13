@@ -1,11 +1,32 @@
 .Listing {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 0.8rem;
+  /* background-color: rgb(122, 146, 219); */
+  border-radius: 5px;
+  border: 1px solid floralwhite;
+  padding: 0.5rem;
+  padding-left: 0.8rem;
+  padding-right: 0.8rem;
 }
 
+
+.find-link {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
 
 .Listing > img {
-  height: 3rem;
+  height: 6rem;
 }
+
+.Listing .city {
+  font-size: 0.8rem;
+  margin-top: 3px;
+  color: lightgray;
+}
+
+
+

@@ -1,18 +1,29 @@
+.ListingsPage {
+  padding-top: 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
 .add-find-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .add-find-form > label {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 
 .add-find-form label > div {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .add-find-form > label > * {
@@ -25,4 +36,14 @@
 
 .add-find-form .photos input {
   width: 10rem;
+}
+
+
+.add-obs-button {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
 }

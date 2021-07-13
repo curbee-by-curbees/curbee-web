@@ -14,6 +14,33 @@ export default class ListingsPage extends Component {
         category: 'water',
         tags: ['crows', 'nature'],
         createdAt: '2016-01-25 10:10:10.555555-05:00',
+      },
+      {
+        id: 3,
+        title: 'crow water',
+        photos: ['https://placekitten.com/300/200'],
+        city: 'Orange',
+        category: 'water',
+        tags: ['crows', 'nature'],
+        createdAt: '2016-01-25 10:10:10.555555-05:00',
+      },
+      {
+        id: 3,
+        title: 'crow water',
+        photos: ['https://placekitten.com/300/200'],
+        city: 'Orange',
+        category: 'water',
+        tags: ['crows', 'nature'],
+        createdAt: '2016-01-25 10:10:10.555555-05:00',
+      },
+      {
+        id: 3,
+        title: 'crow water',
+        photos: ['https://placekitten.com/300/200'],
+        city: 'Orange',
+        category: 'water',
+        tags: ['crows', 'nature'],
+        createdAt: '2016-01-25 10:10:10.555555-05:00',
       }
     ],
     showFindForm: false
@@ -29,7 +56,7 @@ export default class ListingsPage extends Component {
 
     return (
       <div className="ListingsPage">
-        <button hidden={showFindForm} onClick={this.showFindForm}>add my observation</button>
+        <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm}>Add an Observation</button>
         {showFindForm && <form className="add-find-form">
           <label class="title">
             <input type="text" title="title" placeholder="title"/>
