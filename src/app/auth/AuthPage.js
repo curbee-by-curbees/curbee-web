@@ -82,7 +82,7 @@ export default class AuthPage extends Component {
 
 
         <p>
-          <button type="submit">Sign {isSignUp ? 'Up' : 'In'}</button>
+          <button type="submit" className="submit">Sign {isSignUp ? 'Up' : 'In'}</button>
         </p>
 
         <p>
