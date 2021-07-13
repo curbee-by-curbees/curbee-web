@@ -7,6 +7,7 @@ export default class ListingsPage extends Component {
   state = {
     listings: [
       {
+        id: 3,
         title: 'crow water',
         photos: ['https://placekitten.com/300/200'],
         city: 'Orange',

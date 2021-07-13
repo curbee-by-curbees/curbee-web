@@ -11,6 +11,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
+import ListingDetail from '../listingDetail/ListingDetail';
 
 class App extends Component {
 
@@ -42,7 +43,7 @@ class App extends Component {
 
               <Route path="/listings/:id"
                 render={routerProps => (
-                  <div>Implement a page for id {routerProps.match.params.id}</div>
+                  <ListingDetail {...routerProps}/>
                 )}
               />
 
