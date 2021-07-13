@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { signUp, login } from '../../utils/curbee-api'; 
+import { signUp, login } from '../utils/curbee-api'; 
 import './AuthPage.css';
 
 export default class AuthPage extends Component {
@@ -17,7 +17,7 @@ export default class AuthPage extends Component {
 
   handleSubmit = async e => {
     const { isSignUp } = this.state;
-    const { onUser, history } = this.props;
+    const { history } = this.props;
 
     e.preventDefault();
 
@@ -27,7 +27,7 @@ export default class AuthPage extends Component {
       const action = isSignUp ? signUp : login;
       const user = await action(this.state);
 
-      onUser(user);
+      console.log(user);
 
       history.push('/');
     }
@@ -37,7 +37,7 @@ export default class AuthPage extends Component {
   }
 
   handleUsernameChange = ({ target }) => {
-    this.setState({ name: target.value });
+    this.setState({ username: target.value });
   }
 
   handlePasswordChange = ({ target }) => {
@@ -55,27 +55,31 @@ export default class AuthPage extends Component {
       <form className="AuthPage" onSubmit={this.handleSubmit}>
         {isSignUp && <p>
           <label>
-            <span>username</span>
-            <input name="name" value={username} required={true}
-              onChange={this.handleUsernameChange} />
-          </label>
-        </p>}
-
-        <p>
-          <label>
-            <span>password</span>
-            <input name="password" type="password" required={true}
-              value={password} onChange={this.handlePasswordChange} />
-          </label>
-        </p>
-
-        <p>
-          <label>
-            <span>phone number</span>
+            
             <input name="phoneNumber" type="phoneNumber" required={true}
-              value={phoneNumber} onChange={this.handlePhoneNumberChange} />
+              value={phoneNumber} placeholder="Phone Number" onChange={this.handlePhoneNumberChange} />
           </label>
         </p>
+        }
+
+        <p>
+          <label>
+            
+            <input name="username" value={username} required={true}
+              placeholder="Username" onChange={this.handleUsernameChange} />
+          </label>
+        </p>
+
+        <p>
+          <label>
+            
+            <input name="password" type="password" required={true}
+              value={password} placeholder="Password" onChange={this.handlePasswordChange} />
+          </label>
+        </p>
+
+
+
 
         <p>
           <button type="submit">Sign {isSignUp ? 'Up' : 'In'}</button>

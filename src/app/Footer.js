@@ -6,7 +6,12 @@ class Footer extends Component {
   render() { 
     return (
       <footer className="Footer">
-        &copy; 2021 You
+        <div className="footer-logo">Curbee<br />1 Free Stuff Ave<br />Curb, USA 10001</div>
+        <div className="footer-description">Community Free Stuff Alert System<br />
+          hello@curbee.com<br />
+          <a className="footer-link">Instagram</a>
+          <a className="footer-link">Twitter</a>
+        </div>
       </footer>
     );
   }
