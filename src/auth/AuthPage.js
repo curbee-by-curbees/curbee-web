@@ -47,6 +47,7 @@ export default class AuthPage extends Component {
   handlePhoneNumberChange = ({ target }) => {
     this.setState({ phoneNumber: target.value });
   }
+  
 
   render() {
     const { isSignUp, username, password, phoneNumber, error } = this.state;
@@ -56,11 +57,10 @@ export default class AuthPage extends Component {
         {isSignUp && <p>
           <label>
             
-            <input name="phoneNumber" type="phoneNumber" required={true}
+            <input name="phoneNumber" type="tel" required={true}
               value={phoneNumber} placeholder="Phone Number" onChange={this.handlePhoneNumberChange} />
           </label>
-        </p>
-        }
+        </p>}
 
         <p>
           <label>
@@ -77,9 +77,6 @@ export default class AuthPage extends Component {
               value={password} placeholder="Password" onChange={this.handlePasswordChange} />
           </label>
         </p>
-
-
-
 
         <p>
           <button type="submit" className="submit">Sign {isSignUp ? 'Up' : 'In'}</button>

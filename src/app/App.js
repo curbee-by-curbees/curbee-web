@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Home from '../home/Home';
 import AuthPage from '../auth/AuthPage';
+import ListingsPage from '../listings/ListingsPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,6 +11,7 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
+import ListingDetail from '../listingDetail/ListingDetail';
 
 class App extends Component {
 
@@ -33,9 +35,15 @@ class App extends Component {
                 )}
               />
 
-              <Route path="/resources/:id"
+              <Route path="/listings" exact={true}
                 render={routerProps => (
-                  <div>Implement a page for id {routerProps.match.params.id}</div>
+                  <ListingsPage {...routerProps}/>
+                )}
+              />
+
+              <Route path="/listings/:id"
+                render={routerProps => (
+                  <ListingDetail {...routerProps}/>
                 )}
               />
 
