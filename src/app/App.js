@@ -3,6 +3,7 @@ import Header from './Header';
 import Footer from './Footer';
 import Home from '../home/Home';
 import AuthPage from '../auth/AuthPage';
+import ListingsPage from '../listings/ListingsPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -30,6 +31,12 @@ class App extends Component {
               <Route path="/auth" exact={true}
                 render={routerProps => (
                   <AuthPage {...routerProps}/>
+                )}
+              />
+
+              <Route path="/listings" exact={true}
+                render={routerProps => (
+                  <ListingsPage {...routerProps}/>
                 )}
               />
 
