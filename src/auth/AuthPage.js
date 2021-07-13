@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { signUp, login } from '../../utils/curbee-api'; 
+import { signUp, login } from '../utils/curbee-api'; 
 import './AuthPage.css';
 
 export default class AuthPage extends Component {
@@ -17,7 +17,7 @@ export default class AuthPage extends Component {
 
   handleSubmit = async e => {
     const { isSignUp } = this.state;
-    const { onUser, history } = this.props;
+    const { history } = this.props;
 
     e.preventDefault();
 
@@ -27,7 +27,7 @@ export default class AuthPage extends Component {
       const action = isSignUp ? signUp : login;
       const user = await action(this.state);
 
-      onUser(user);
+      console.log(user);
 
       history.push('/');
     }
