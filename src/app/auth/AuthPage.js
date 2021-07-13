@@ -27,6 +27,8 @@ export default class AuthPage extends Component {
       const action = isSignUp ? signUp : login;
       const user = await action(this.state);
 
+      console.log(user);
+
       onUser(user);
 
       history.push('/');
