@@ -32,3 +32,15 @@ export async function login(credentials) {
 
   return response.body;
 }
+
+export async function getFind(id) {
+  const response = await request  
+    .get(API + `/api/v1/finds/${id}`)
+    .ok(res => res.status < 500);
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
