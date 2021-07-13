@@ -3,14 +3,12 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 100px;
-  margin-bottom: 0;
-  border-bottom: none;
+  height: 20vh;
 
 }
 
 .footer-logo {
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding: 3rem;
 }
 
