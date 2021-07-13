@@ -2,7 +2,7 @@ import { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Home from '../home/Home';
-import AuthPage from './auth/AuthPage';
+import AuthPage from '../auth/AuthPage';
 import {
   BrowserRouter as Router,
   Route,
