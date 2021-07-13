@@ -1,0 +1,11 @@
+.Listing {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.Listing > img {
+  height: 3rem;
+}
