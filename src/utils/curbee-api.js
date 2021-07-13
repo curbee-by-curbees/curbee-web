@@ -22,7 +22,6 @@ export async function signUp(credentials) {
 
 export async function login(credentials) {
   const response = await request 
-
     .post(API + '/api/v1/auth/login')
     .ok(res => res.status < 500)
     .send(credentials);
