@@ -43,20 +43,23 @@ export default class ListingsPage extends Component {
         createdAt: '2016-01-25 10:10:10.555555-05:00',
       }
     ],
-    showFindForm: false
+    showFindForm: false,
+    showListings: true
   }
 
   showFindForm = e => {
     e.preventDefault();
     this.setState({ showFindForm: true });
+    this.setState({ showListings: false });
   }
 
+
   render() {
-    const { listings, showFindForm } = this.state;
+    const { listings, showFindForm, showListings } = this.state;
 
     return (
       <div className="ListingsPage">
-        <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm}>Add an Observation</button>
+        <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm} >Add an Observation</button>
         {showFindForm && <form className="add-find-form">
           <label class="title">
             <input type="text" title="title" placeholder="title"/>
@@ -90,11 +93,11 @@ export default class ListingsPage extends Component {
           <button type="submit">submit find</button>
         </form>}
 
-        <ul>
+        {showListings && <ul>
           {listings.map(find => (
             <Listing find={find}/>
           ))}
-        </ul>
+        </ul>}
       </div>
     );
   }
