@@ -18,7 +18,7 @@ export default class ListingsPage extends Component {
   };
 
   async componentDidMount() {
-    const finds = await getFinds();
+    const finds = []; // await getFinds();
     this.setState({ listings: finds });
   }
 
@@ -34,8 +34,6 @@ export default class ListingsPage extends Component {
     const { history } = this.props;
     const { title, url, latitude, longitude, category, tags } = this.state;
 
-    console.log('here', this.state);
-
     try {
       const newFind = await addFind({
         title,
@@ -48,7 +46,7 @@ export default class ListingsPage extends Component {
       });
       console.log(newFind);
 
-      history.push(`/api/v1/finds/${newFind.id}`);
+      history.push(`/listings/${newFind.id}`);
     }
     catch (err) {
       console.log('ERROR', err.message);
