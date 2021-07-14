@@ -26,13 +26,13 @@ export default class ListingDetail extends Component {
 
     return (
       <div className="ListingDetail">
-        {find && <>
+        {find && <div>
           <h2>{find.title}</h2>
           <img src={find.photos[0]} alt={find.title}/>
           <span>{find.city}</span>
           <span>{find.category}</span>
           <span>{find.tags}</span>
-        </>}
+        </div>}
       </div>
     );
   }
