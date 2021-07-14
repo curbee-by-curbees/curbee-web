@@ -6,6 +6,15 @@
   align-items: center;
 }
 
+.add-find-form button {
+  cursor: pointer;
+}
+
+.add-find-form button:active {
+  background-color: floralwhite;
+  color: royalblue;
+}
+
 .loc-btn, .image-upload-btn, .sub-btn {
   border: 1px solid floralwhite;
   background-color: rgb(104, 133, 219);
@@ -46,17 +55,17 @@
   justify-content: center;
 }
 
-.add-find-form > label > * {
+ .add-find-form > label > * {
   width: 13rem;
 }
-
+/*
 .add-find-form .location input {
   width: 5rem;
 }
 
 .add-find-form .photos input {
   width: 10rem;
-}
+} */
 
 
 .add-obs-button {
