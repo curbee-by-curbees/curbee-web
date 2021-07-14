@@ -10,7 +10,7 @@ export default class ListingDetail extends Component {
     find: null
   }
 
-  async componentDidCatch() {
+  async componentDidMount() {
     const { match } = this.props;
     try {
       const find = await getFind(match.params.id);

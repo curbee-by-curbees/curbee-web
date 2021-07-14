@@ -29,7 +29,7 @@ export default class AuthPage extends Component {
 
       console.log(user);
 
-      history.push('/');
+      history.push('/listings');
     }
     catch (err) {
       this.setState({ error: err.message });
