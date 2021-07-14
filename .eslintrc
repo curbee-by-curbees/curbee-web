@@ -1,52 +1,77 @@
 {
-    "extends": ["react-app"],
-    "rules": {
-      "indent": [
-        "error",
-        2,
-        {
-          "SwitchCase": 1,
-          "ignoreComments": true
-        }
-      ],
-      "quotes": [
-        "error", 
-        "single",
-        { 
-          "avoidEscape": true,
-          "allowTemplateLiterals": true 
-        }
-      ],
-      "no-multi-spaces": [
-        "error",
-        {
-          "ignoreEOLComments": true
-        }
-      ],
-      "new-cap": "error",
-      "no-redeclare": [
-        "error",
-        {
-          "builtinGlobals": true
-        }
-      ],
-      "semi": ["error", "always"],
-      "space-in-parens": ["error"],
-      "space-infix-ops": "error",
-      "object-curly-spacing": ["error", "always"],
-      "comma-spacing": "error",
-      "space-before-function-paren": ["error", {
-          "anonymous": "never",
-          "named": "never",
-          "asyncArrow": "always"
-      }],
-      "keyword-spacing": [
-        "error",
-        {
-          "before": true,
-          "after": true
-        }
-      ],
-      "array-bracket-spacing": "error"
+  "extends": [
+    "react-app"
+  ],
+  "rules": {
+    // suppress errors for missing 'import React' in files
+    "react/react-in-jsx-scope": "off",
+    // allow jsx syntax in js files (for next.js project)
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ] //should add ".ts" if typescript project
+  },
+  "indent": [
+    "error",
+    2,
+    {
+      "SwitchCase": 1,
+      "ignoreComments": true
     }
-  }
+  ],
+  "quotes": [
+    "error",
+    "single",
+    {
+      "avoidEscape": true,
+      "allowTemplateLiterals": true
+    }
+  ],
+  "no-multi-spaces": [
+    "error",
+    {
+      "ignoreEOLComments": true
+    }
+  ],
+  "new-cap": "error",
+  "no-redeclare": [
+    "error",
+    {
+      "builtinGlobals": true
+    }
+  ],
+  "semi": [
+    "error",
+    "always"
+  ],
+  "space-in-parens": [
+    "error"
+  ],
+  "space-infix-ops": "error",
+  "object-curly-spacing": [
+    "error",
+    "always"
+  ],
+  "comma-spacing": "error",
+  "space-before-function-paren": [
+    "error",
+    {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }
+  ],
+  "keyword-spacing": [
+    "error",
+    {
+      "before": true,
+      "after": true
+    }
+  ],
+  "array-bracket-spacing": "error"
+}
