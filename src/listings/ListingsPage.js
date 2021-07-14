@@ -30,7 +30,7 @@ export default class ListingsPage extends Component {
 
   postFind = async e => {
     e.preventDefault();
-    console.log('button clicked');
+    
     const { history } = this.props;
     const { title, url, latitude, longitude, category, tags } = this.state;
 
@@ -43,8 +43,11 @@ export default class ListingsPage extends Component {
         latitude,
         longitude,
         category,
-        tags
+        tags,
+        userId: window.localStorage.getItem('USERID').toString()
       });
+      console.log(newFind);
+
       history.push(`/api/v1/finds/${newFind.id}`);
     }
     catch (err) {
@@ -75,7 +78,6 @@ export default class ListingsPage extends Component {
   handleTagsChange = ({ target }) => {
     this.setState({ tags: [target.value] });
   }
-
 
   render() {
     const { listings, showFindForm, showListings, title, url, latitude, longitude, category, tags } = this.state;

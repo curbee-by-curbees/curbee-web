@@ -16,10 +16,10 @@ export default class AuthPage extends Component {
   }
 
   handleSubmit = async e => {
+    e.preventDefault();
+
     const { isSignUp } = this.state;
     const { history } = this.props;
-
-    e.preventDefault();
 
     this.setState({ error: '' });
 
@@ -27,7 +27,9 @@ export default class AuthPage extends Component {
       const action = isSignUp ? signUp : login;
       const user = await action(this.state);
 
-      console.log(user);
+      // set the TOKEN and USERID in our local storage
+      window.localStorage.setItem('TOKEN', user.token);
+      window.localStorage.setItem('USERID', user.id);
 
       history.push('/listings');
     }

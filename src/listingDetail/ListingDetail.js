@@ -1,4 +1,3 @@
-import { find } from 'async';
 import { Component } from 'react';
 import { getFind } from '../utils/curbee-api';
 import './ListingDetail.css';

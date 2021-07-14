@@ -2,7 +2,6 @@ import request from 'superagent';
 
 const API = 'http://localhost:7890';
 
-
 export async function signUp(credentials) {
   const response = await request
     .post(API + '/api/v1/auth/signup')
@@ -25,6 +24,8 @@ export async function login(credentials) {
     .post(API + '/api/v1/auth/login')
     .ok(res => res.status < 500)
     .send(credentials);
+  
+  console.log(response);
 
   if (response.status === 400) {
     throw response.body;
@@ -60,7 +61,7 @@ export async function getFinds() {
 export async function addFind(find) {
   const response = await request
     .post(API + '/api/v1/finds')
-    .send(find);
+    .send({ ...find, jwt: window.localStorage.getItem('TOKEN') });
 
   return response.body;
 }
