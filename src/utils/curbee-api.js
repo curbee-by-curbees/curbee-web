@@ -37,7 +37,8 @@ export async function login(credentials) {
 export async function getFind(id) {
   const response = await request  
     .get(API + `/api/v1/finds/${id}`)
-    .ok(res => res.status < 500);
+    .ok(res => res.status < 500)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
 
   if (response.status === 400) {
     throw response.body;
@@ -49,7 +50,8 @@ export async function getFind(id) {
 export async function getFinds() {
   const response = await request
     .get(API + '/api/v1/finds')
-    .ok(res => res.status < 500);
+    .ok(res => res.status < 500)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
 
   if (response.status === 400) {
     throw response.body;
@@ -61,7 +63,8 @@ export async function getFinds() {
 export async function addFind(find) {
   const response = await request
     .post(API + '/api/v1/finds')
-    .send({ ...find, jwt: window.localStorage.getItem('TOKEN') });
+    .send(find)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
 
   return response.body;
 }

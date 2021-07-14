@@ -18,7 +18,7 @@ export default class ListingsPage extends Component {
   };
 
   async componentDidMount() {
-    const finds = []; // await getFinds();
+    const finds = await getFinds();
     this.setState({ listings: finds });
   }
 
@@ -121,7 +121,7 @@ export default class ListingsPage extends Component {
 
         {showListings && <ul>
           {listings.map(find => (
-            <Listing find={find}/>
+            <Listing key={find.id} find={find}/>
           ))}
         </ul>}
       </div>
