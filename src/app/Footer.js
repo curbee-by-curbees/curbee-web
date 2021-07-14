@@ -9,8 +9,8 @@ class Footer extends Component {
         <div className="footer-logo">Curbee, Inc.<br />1 Free Pile Ave<br />Curb, USA 10001</div>
         <div className="footer-description">Community Free Stuff Alert System<br />
           hello@curbee.app<br />
-          <a className="footer-link">Instagram</a>
-          <a className="footer-link">Twitter</a>
+          <a href="/" className="footer-link">Instagram</a>
+          <a href="/" className="footer-link">Twitter</a>
         </div>
       </footer>
     );
