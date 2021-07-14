@@ -68,3 +68,13 @@ export async function addFind(find) {
 
   return response.body;
 }
+
+export async function addSpot(spot) {
+  const response = await request
+    .post(API + '/api/v1/spots')
+    .send(spot)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  return response.body;
+
+}
