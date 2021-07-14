@@ -45,17 +45,17 @@
   justify-content: center;
 }
 
-.add-find-form > label > * {
+ .add-find-form > label > * {
   width: 13rem;
 }
-
+/*
 .add-find-form .location input {
   width: 5rem;
 }
 
 .add-find-form .photos input {
   width: 10rem;
-}
+} */
 
 
 .add-obs-button {
