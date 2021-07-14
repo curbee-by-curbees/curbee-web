@@ -22,3 +22,16 @@ main {
   overflow-y: scroll;
 }
 
+.wrapper-h, .wrapper-v {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper-h {
+  flex-direction: row;
+}
+
+.wrapper-v {
+  flex-direction: column;
+}
