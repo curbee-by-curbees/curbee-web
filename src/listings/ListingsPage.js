@@ -86,26 +86,26 @@ export default class ListingsPage extends Component {
       <div className="ListingsPage">
         <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm} >Add an Observation</button>
         {showFindForm && <form className="add-find-form" onSubmit={this.postFind}>
-          <label className="title">
+          <label className="title">Title:
             <input type="text" value={title} title="title" onChange={this.handleTitleChange} placeholder="title"/>
           </label>
 
-          <label className="photos">
+          <label className="photos">Photo URL:
             <div className="wrapper-h">
               <input type="text" value={url} title="image url" onChange={this.handleUrlChange} placeholder="image url"/>
-              <button>&#x1F4F7;</button>
+              <button className="image-upload-btn">Upload</button>
             </div>
           </label>
 
-          <label className="location">
+          <label className="location">Location:
             <div className="wrapper-h">
               <input className="lat-input" value={latitude} onChange={this.handleLatitudeChange} type="text" title="latitude" placeholder="latitude"/>
               <input className="lng-input" value={longitude} onChange={this.handleLongitudeChange} type="text" title="longitude" placeholder="longitude"/>
-              <button>&#x1f4cd;</button>
+              <button className="loc-btn">Find Your Location</button>
             </div>
           </label>
 
-          <label className="category">
+          <label className="category">Listing Category:
             <select title="category" value={category} onChange={this.handleCategoryChange} >
               <option>furniture</option>
               <option>furniture</option>
@@ -114,11 +114,11 @@ export default class ListingsPage extends Component {
             </select>
           </label>
 
-          <label className="tags">
+          <label className="tags">Tags:
             <input title="tags" value={tags} onChange={this.handleTagsChange} type="text" placeholder="tags"/>
           </label>
 
-          <button type="submit">submit find</button>
+          <button className="sub-btn" type="submit">Submit</button>
         </form>}
 
         {showListings && <ul>
