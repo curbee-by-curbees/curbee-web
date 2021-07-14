@@ -6,6 +6,17 @@
   align-items: center;
 }
 
+.loc-btn, .image-upload-btn, .sub-btn {
+  border: 1px solid floralwhite;
+  background-color: rgb(104, 133, 219);
+  width: 80%;
+  border-radius: 5px;
+}
+
+.sub-btn {
+  width: 40%;
+}
+
 
 .add-find-form {
   display: flex;
@@ -13,11 +24,19 @@
   align-items: center;
 }
 
+.add-find-form input, .add-find-form select {
+  margin-top: 3px;
+  margin-bottom: 8px;
+}
+
 .add-find-form > label {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  font-size: 0.8rem;
+  font-weight: bold;
   width: 100%;
+  margin-bottom: 5px;
 }
 
 .add-find-form label > div {
