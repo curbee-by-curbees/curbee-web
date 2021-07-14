@@ -44,3 +44,23 @@ export async function getFind(id) {
 
   return response.body;
 }
+
+export async function getFinds() {
+  const response = await request
+    .get(API + '/api/v1/finds')
+    .ok(res => res.status < 500);
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
+
+export async function addFind(find) {
+  const response = await request
+    .post(API + '/api/v1/finds')
+    .send(find);
+
+  return response.body;
+}
