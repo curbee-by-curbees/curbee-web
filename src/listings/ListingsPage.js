@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { addFind, addPhoto, getFinds } from '../utils/curbee-api.js';
+import { addFind, addPhoto, alertAboutFind, getFinds } from '../utils/curbee-api.js';
 import './ListingsPage.css';
 import Listing from './Listing';
 
@@ -75,6 +75,10 @@ export default class ListingsPage extends Component {
         });
       });
 
+      // alert nearby phones of find
+      await alertAboutFind(newFind.id);
+
+      // redirect to that find's page
       history.push(`/listings/${newFind.id}`);
     }
     catch (err) {
