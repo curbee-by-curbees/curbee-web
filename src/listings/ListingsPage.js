@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { addFind, addPhoto, alertAboutFind, getFinds } from '../utils/curbee-api.js';
+import { addFind, addPhoto, alertAboutFind, getNearby } from '../utils/curbee-api.js';
 import './ListingsPage.css';
 import Listing from './Listing';
 
@@ -19,7 +19,18 @@ export default class ListingsPage extends Component {
   };
 
   async componentDidMount() {
-    const finds = await getFinds();
+    navigator.geolocation.getCurrentPosition(this.getListings);
+  }
+
+  getListings = async pos => {
+    const { latitude, longitude } = pos.coords;
+
+    const finds = await getNearby({
+      latitude: latitude || 45.5051,
+      longitude: longitude || -122.6750,
+      radius: 10
+    });
+
     this.setState({ listings: finds });
   }
 
