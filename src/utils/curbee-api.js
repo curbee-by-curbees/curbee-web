@@ -78,3 +78,13 @@ export async function addSpot(spot) {
   return response.body;
 
 }
+
+export async function addPhoto(photo) {
+  const response = await request
+    .post(API + '/api/v1/photos')
+    .send(photo)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  return response.body;
+
+}
