@@ -25,10 +25,57 @@ export async function login(credentials) {
     .post(API + '/api/v1/auth/login')
     .ok(res => res.status < 500)
     .send(credentials);
+  
+  console.log(response);
 
   if (response.status === 400) {
     throw response.body;
   }
 
   return response.body;
+}
+
+export async function getFind(id) {
+  const response = await request  
+    .get(API + `/api/v1/finds/${id}`)
+    .ok(res => res.status < 500)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
+
+export async function getFinds() {
+  const response = await request
+    .get(API + '/api/v1/finds')
+    .ok(res => res.status < 500)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
+
+export async function addFind(find) {
+  const response = await request
+    .post(API + '/api/v1/finds')
+    .send(find)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  return response.body;
+}
+
+export async function addSpot(spot) {
+  const response = await request
+    .post(API + '/api/v1/spots')
+    .send(spot)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  return response.body;
+
 }
