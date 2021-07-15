@@ -1,8 +1,6 @@
 import request from 'superagent';
 const API = 'http://localhost:7890';
 
-const API = 'http://localhost:7890';
-
 export async function signUp(credentials) {
   const response = await request
     .post(API + '/api/v1/auth/signup')
