@@ -2,7 +2,6 @@ import { Component } from 'react';
 import { addFind, getFinds } from '../utils/curbee-api';
 import './ListingsPage.css';
 import Listing from './Listing';
-import { WidgetLoader, Widget } from 'react-cloudinary-upload-widget';
 
 export default class ListingsPage extends Component {
 
@@ -21,6 +20,25 @@ export default class ListingsPage extends Component {
   async componentDidMount() {
     const finds = await getFinds();
     this.setState({ listings: finds });
+  }
+
+  showWidget = () => {
+    // add the cloudinary widget
+    let widget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: 'curbeecloud',
+        uploadPreset: 'curbee-by-curbeez',
+        public_id: `curbee${Math.floor(Math.random() * 100)}`
+      },
+      (error, result) => {
+        if (!error && result && result.event === 'success') {
+          console.log('Done! Here is the image info: ', result.info);
+          this.setState({ url: result.info.secure_url });
+        }
+      }
+    );
+
+    widget.open();
   }
 
   showFindForm = e => {
@@ -82,7 +100,7 @@ export default class ListingsPage extends Component {
     const { listings, showFindForm, showListings, title, url, latitude, longitude, category, tags } = this.state;
 
     return (
-      <div className="ListingsPage">
+      <> <div className="ListingsPage">
         <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm} >Add an Observation</button>
         {showFindForm && <form className="add-find-form" onSubmit={this.postFind}>
           <label className="title">Title:
@@ -92,7 +110,7 @@ export default class ListingsPage extends Component {
           <label className="photos">Photo URL:
             <div className="wrapper-h">
               <input type="text" value={url} title="image url" onChange={this.handleUrlChange} placeholder="image url"/>
-              <button className="image-upload-btn">Upload</button>
+              <button id="upload_widget" className="image-upload-btn cloudinary-button" onClick={this.showWidget}>Upload</button>
             </div>
           </label>
 
@@ -125,7 +143,7 @@ export default class ListingsPage extends Component {
             <Listing key={find.id} find={find}/>
           ))}
         </ul>}
-      </div>
+      </div> </>
     );
   }
 }
