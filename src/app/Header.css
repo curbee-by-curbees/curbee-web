@@ -1,12 +1,56 @@
 .Header {
   border-bottom: 2px solid floralwhite;
   width: 100vw;
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  height: 100px;
+  overflow-y: visible;
+}
+
+.logo-div {
   display: flex;
-  flex-direction: column;
-  padding-top: 1rem;
   justify-content: center;
   align-items: center;
-  height: 10vh;
+}
+
+.nav-div {
+  display: flex;
+  justify-content: space-evenly;
+  width: 70%;
+}
+
+.dropdown-div {
+  display: flex;
+  align-items: center;
+  overflow-x:auto;
+  
+}
+
+#dropdown-button {
+  border-bottom: none;
+}
+
+#dropdown-button:active, #dropdown-button:hover, #dropdown-button:after {
+  background-color: royalblue;
+  color: floralwhite;
+}
+
+.dropdown-item {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.2rem;
+  display: block;
+  padding: 0;
+  
+  padding-top: 5px;
+  background-color: rgba(255, 250, 240, 0.913);
+  color: royalblue;
+}
+
+.listings {
+  border-bottom: none;
+  height: 100px;
 }
 
 h1 {
@@ -14,4 +58,10 @@ h1 {
   font-weight: normal;
   font-family: 'Benne', serif;
   margin: 0;
+}
+
+.Header .settings-btn {
+  height: 1rem;
+  width: 1rem;
+  
 }
