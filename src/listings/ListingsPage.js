@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { addFind, addPhoto, getFinds } from '../utils/curbee-api';
+import { addFind, addPhoto, getFinds } from '../utils/curbee-api.js';
 import './ListingsPage.css';
 import Listing from './Listing';
 
@@ -103,7 +103,7 @@ export default class ListingsPage extends Component {
 
     return (
       <div className="ListingsPage">
-        <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm} >Add an Observation</button>
+        <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm} >Add a Find</button>
         {showFindForm && <form className="add-find-form" onSubmit={this.postFind}>
           <label className="title">Title:
             <input type="text" value={title} name="title" title="title" onChange={this.handleChange} placeholder="title"/>

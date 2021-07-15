@@ -4,7 +4,6 @@ import './ListingDetail.css';
 
 
 export default class ListingDetail extends Component {
-
   state = {
     find: null
   }
@@ -20,7 +19,6 @@ export default class ListingDetail extends Component {
     }
   }
 
-  
   render() {
     const { find } = this.state;
 
