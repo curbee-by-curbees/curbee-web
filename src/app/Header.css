@@ -15,3 +15,9 @@ h1 {
   font-family: 'Benne', serif;
   margin: 0;
 }
+
+.Header .settings-btn {
+  height: 1rem;
+  width: 1rem;
+  
+}
