@@ -2,7 +2,6 @@ import request from 'superagent';
 
 const API = 'http://localhost:7890';
 
-
 export async function signUp(credentials) {
   const response = await request
     .post(API + '/api/v1/auth/signup')
@@ -74,6 +73,16 @@ export async function addSpot(spot) {
   const response = await request
     .post(API + '/api/v1/spots')
     .send(spot)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  return response.body;
+
+}
+
+export async function addPhoto(photo) {
+  const response = await request
+    .post(API + '/api/v1/photos')
+    .send(photo)
     .set('Authorization', window.localStorage.getItem('TOKEN'));
 
   return response.body;
