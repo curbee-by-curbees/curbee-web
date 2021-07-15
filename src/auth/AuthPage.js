@@ -16,10 +16,10 @@ export default class AuthPage extends Component {
   }
 
   handleSubmit = async e => {
+    e.preventDefault();
+
     const { isSignUp } = this.state;
     const { history } = this.props;
-
-    e.preventDefault();
 
     this.setState({ error: '' });
 
@@ -27,9 +27,11 @@ export default class AuthPage extends Component {
       const action = isSignUp ? signUp : login;
       const user = await action(this.state);
 
-      console.log(user);
+      // set the TOKEN and USERID in our local storage
+      window.localStorage.setItem('TOKEN', user.token);
+      window.localStorage.setItem('USERID', user.id);
 
-      history.push('/');
+      history.push('/listings');
     }
     catch (err) {
       this.setState({ error: err.message });
@@ -47,6 +49,7 @@ export default class AuthPage extends Component {
   handlePhoneNumberChange = ({ target }) => {
     this.setState({ phoneNumber: target.value });
   }
+  
 
   render() {
     const { isSignUp, username, password, phoneNumber, error } = this.state;
@@ -56,7 +59,7 @@ export default class AuthPage extends Component {
         {isSignUp && <p>
           <label>
             
-            <input name="phoneNumber" type="phoneNumber" required={true}
+            <input name="phoneNumber" type="tel" required={true}
               value={phoneNumber} placeholder="Phone Number" onChange={this.handlePhoneNumberChange} />
           </label>
         </p>
@@ -82,7 +85,7 @@ export default class AuthPage extends Component {
 
 
         <p>
-          <button type="submit">Sign {isSignUp ? 'Up' : 'In'}</button>
+          <button type="submit" className="submit">Sign {isSignUp ? 'Up' : 'In'}</button>
         </p>
 
         <p>
