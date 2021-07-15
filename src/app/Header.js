@@ -20,7 +20,7 @@ class Header extends Component {
         </div> */}
         <div className='dropdown-div'>
           <DropdownButton align="end" id="dropdown-button" title="•••">
-            <Dropdown.Item className='dropdown-item listings' href="/listings">Listings</Dropdown.Item>
+            <Dropdown.Item className='dropdown-item dropdown-listings' href="/listings">Listings</Dropdown.Item>
             <Dropdown.Item className='dropdown-item' href="/settings">Settings</Dropdown.Item>
           </DropdownButton>
         </div>
