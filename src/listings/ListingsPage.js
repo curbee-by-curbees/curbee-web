@@ -92,11 +92,17 @@ export default class ListingsPage extends Component {
     this.setState({ tags: [target.value] });
   }
 
+  askLocation = e => {
+    navigator.geolocation.getCurrentPosition(pos => {
+      this.setState({ latitude: pos.coords.latitude, longitude: pos.coords.longitude });
+    });
+  }
+
   render() {
     const { listings, showFindForm, showListings, title, url, latitude, longitude, category, tags } = this.state;
 
     return (
-      <> <div className="ListingsPage">
+      <div className="ListingsPage">
         <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm} >Add an Observation</button>
         {showFindForm && <form className="add-find-form" onSubmit={this.postFind}>
           <label className="title">Title:
@@ -114,7 +120,7 @@ export default class ListingsPage extends Component {
             <div className="wrapper-h">
               <input className="lat-input" name="latitude" value={latitude} onChange={this.handleChange} type="text" title="latitude" placeholder="latitude"/>
               <input className="lng-input" name="longitude" value={longitude} onChange={this.handleChange} type="text" title="longitude" placeholder="longitude"/>
-              <button className="loc-btn">Find Your Location</button>
+              <button onClick={this.askLocation} className="loc-btn">Find Your Location</button>
             </div>
           </label>
 
@@ -137,7 +143,7 @@ export default class ListingsPage extends Component {
             <Listing key={find.id} find={find}/>
           ))}
         </ul>}
-      </div> </>
+      </div>
     );
   }
 }
