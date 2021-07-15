@@ -1,0 +1,11 @@
+.Settings form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Settings button {
+  background-color: floralwhite;
+  color: royalblue;
+  border-radius: 5px;
+}

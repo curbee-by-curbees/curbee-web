@@ -60,7 +60,7 @@ class Settings extends Component {
 
     return (
       <div className="Settings">
-        <div>lookout spots:</div>
+        
         <form onSubmit={this.postSpot}>
 
           <p>
@@ -86,6 +86,7 @@ class Settings extends Component {
               <input name="longitude" type="text" defaultValue={longitude} placeholder="longitude" onChange={this.handleLongitudeChange} />
             </label>
           </p>
+          <button>Find Your Location</button>
 
           <p>
             <label>
@@ -93,7 +94,7 @@ class Settings extends Component {
             </label>
           </p>
 
-          <button type="submit" onSubmit={this.postSpot}>add lookout spot</button>
+          <button type="submit" onSubmit={this.postSpot}>Add Lookout Spot</button>
 
         </form>
 
