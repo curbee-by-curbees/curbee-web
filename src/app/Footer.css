@@ -3,13 +3,16 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 20vh;
+  height: 50px;
+  background-color: royalblue;
 
 }
 
 .footer-logo {
-  font-size: 1rem;
+  font-size: 0.8rem;
   padding: 3rem;
+  padding-bottom: 1rem;
+
 }
 
 .footer-description {

@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Benne";
-    src: url("./Benne-Regular.ttf") format('ttf');
+    src: url("./Benne-Regular.woff") format('woff');
 }
 
 @font-face {
@@ -9,9 +9,3 @@
     font-weight: normal;
 }
 
-@font-face {
-    font-family: "Tenor Sans";
-    src: url("./TenorSans-Regular.ttf") format('ttf');
-    font-weight: normal;
-    
-}
