@@ -28,6 +28,10 @@
   margin-right: 0.5rem;
 }
 
+.Footer a {
+  color: floralwhite;
+}
+
 .red {
   color: rgb(216, 140, 140);
   font-family: 'Times New Roman', serif;
