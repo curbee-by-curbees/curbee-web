@@ -83,6 +83,7 @@ export default class ListingsPage extends Component {
     return (
       <div className="ListingsPage">
         <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm} >Add an Observation</button>
+        
         {showFindForm && <form className="add-find-form" onSubmit={this.postFind}>
           <label className="title">Title:
             <input type="text" value={title} title="title" onChange={this.handleTitleChange} placeholder="title"/>

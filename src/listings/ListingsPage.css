@@ -33,11 +33,6 @@
   padding: 0.5rem;
 }
 
-.add-find-form input, .add-find-form select {
-  margin-top: 3px;
-  margin-bottom: 8px;
-}
-
 .add-find-form > label {
   display: flex;
   flex-direction: column;
@@ -66,7 +61,6 @@
   width: 10rem;
 } */
 
-
 .add-obs-button {
   margin-top: 0;
   padding-top: 0;
@@ -75,3 +69,14 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+.add-find-form input, .add-find-form select {
+  margin-top: 3px;
+  margin-bottom: 8px;
+  width: 220px;
+}
+
+.add-find-form select {
+  width: 232px;
+}
+
