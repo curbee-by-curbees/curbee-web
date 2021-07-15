@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { addFind, getFinds } from '../utils/curbee-api';
 import './ListingsPage.css';
 import Listing from './Listing';
+import { WidgetLoader, Widget } from 'react-cloudinary-upload-widget';
 
 export default class ListingsPage extends Component {
 
