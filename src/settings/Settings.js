@@ -1,6 +1,8 @@
 import { Component } from 'react';
 import { addSpot } from '../utils/curbee-api';
 import './Settings.css';
+import './LookoutSpot';
+import LookoutSpot from './LookoutSpot';
 
 class Settings extends Component {
 
@@ -9,7 +11,10 @@ class Settings extends Component {
     radius: '',
     latitude: '',
     longitude: '',
-    tags: []
+    tags: [],
+    lookoutspots: [],
+    showLookoutSpot: true,
+    showSpotForm: true
   }
 
   postSpot = async e => {
@@ -28,11 +33,18 @@ class Settings extends Component {
         userId: window.localStorage.getItem('USERID')
       });
       console.log(newSpot);
-
+      this.setState({ lookoutspots: [...this.state.lookoutspots, newSpot] });
     }
     catch (err) {
       console.log('ERROR', err.message);
     }
+  }
+
+  askLocation = e => {
+    e.preventDefault();
+    navigator.geolocation.getCurrentPosition(pos => {
+      this.setState({ latitude: pos.coords.latitude, longitude: pos.coords.longitude });
+    });
   }
 
   handleNameChange = ({ target }) => {
@@ -56,12 +68,12 @@ class Settings extends Component {
   }
 
   render() { 
-    const { name, radius, latitude, longitude, tags } = this.state;
+    const { name, radius, latitude, longitude, tags, lookoutspots, showLookoutSpot, showSpotForm } = this.state;
 
     return (
       <div className="Settings">
         
-        <form onSubmit={this.postSpot}>
+        {showSpotForm && <form>
 
           <p>
             <label>
@@ -86,7 +98,7 @@ class Settings extends Component {
               <input name="longitude" type="text" defaultValue={longitude} placeholder="longitude" onChange={this.handleLongitudeChange} />
             </label>
           </p>
-          <button>Find Your Location</button>
+          <button onClick={this.askLocation}>Find Your Location</button>
 
           <p>
             <label>
@@ -94,11 +106,15 @@ class Settings extends Component {
             </label>
           </p>
 
-          <button type="submit" onSubmit={this.postSpot}>Add Lookout Spot</button>
+          <button type="submit" onClick={this.postSpot}>Add Lookout Spot</button>
 
-        </form>
+        </form>}
 
-       
+        {showLookoutSpot && <ul>
+          {lookoutspots.map(spot => (
+            <LookoutSpot key={spot.id} spot={spot}/>
+          ))}
+        </ul>}
         
       </div>
     );

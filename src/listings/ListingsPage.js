@@ -112,7 +112,7 @@ export default class ListingsPage extends Component {
           <label className="photos">Photo URL:
             <div className="wrapper-h">
               <input type="text" value={url} name="url" title="image url" onChange={this.handleChange} placeholder="image url"/>
-              <button id="upload_widget" className="image-upload-btn cloudinary-button" onClick={this.showWidget}>Upload</button>
+              <button id="upload_widget" className="image-upload-btn" onClick={this.showWidget}>Upload</button>
             </div>
           </label>
 
