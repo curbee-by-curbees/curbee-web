@@ -35,7 +35,7 @@ export default class ListingDetail extends Component {
           <div>State: {location.state}</div>
           <div>Category: {find.category}</div>
           <div>Tags: {find.tags}</div>
-
+          <a href={'https://www.openstreetmap.org/#map=18/' + find.latitude + '/' + find.longitude}>Map</a><br/>
           <Link to="/listings" exact={true}>Return to Listings</Link>
         </div>}
       </div>
