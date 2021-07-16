@@ -47,6 +47,19 @@ export async function getFind(id) {
   return response.body;
 }
 
+export async function claimFind(id) {
+  const response = await request  
+    .patch(API + `/api/v1/finds/${id}`)
+    .ok(res => res.status < 500)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
+
 export async function getFinds() {
   const response = await request
     .get(API + '/api/v1/finds')
