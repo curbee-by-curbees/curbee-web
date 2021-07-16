@@ -11,12 +11,11 @@ export default class ListingDetail extends Component {
   }
 
   async componentDidMount() {
-
     const { match } = this.props;
 
     try {
       const find = await getFind(match.params.id);
-      this.setState({ find: find });
+      this.setState({ find: find, showButton: !find.isClaimed, showDiv: find.isClaimed });
     }
     catch (err) {
       console.log(err.message);
@@ -33,6 +32,7 @@ export default class ListingDetail extends Component {
 
     try {
       const claimedFind = await claimFind(find.id);
+
       this.setState({ 
         find: { ...claimedFind }, 
         showButton: false, 
