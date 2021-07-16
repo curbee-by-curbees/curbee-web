@@ -21,6 +21,7 @@ export default class ListingDetail extends Component {
     }
     catch (err) {
       console.log(err.message);
+      this.props.history.push('/listings');
     }
   }
 
@@ -28,12 +29,10 @@ export default class ListingDetail extends Component {
     const { find } = this.state;
 
     try {
-      const claimedFind = await claimFind(find.id);
+      await claimFind(find.id);
 
       this.setState({ 
-        find: { ...claimedFind }, 
-        showButton: false, 
-        showDiv: true 
+        find: { ...this.state.find, isClaimed: true },
       });
     }
     catch (err) {
@@ -65,16 +64,14 @@ export default class ListingDetail extends Component {
           <div>State: {location.state}</div>
           <div>Category: {find.category}</div>
           <div>Tags: {find.tags}</div>
-          <a href={'https://www.openstreetmap.org/#map=18/' + find.latitude + '/' + find.longitude}>Map</a><br/>
-          <Link to="/listings" exact={true}>Return to Listings</Link>
-
           { find.isClaimed 
             ? <div id="claimed">this find has been claimed</div>
-            : <button className="claim" onClick={this.handleClaimed}>mark as claimed</button>
+            : <button className="claim" onClick={this.handleClaimed}>Mark as claimed</button>
           }
-
-          <button className="open-maps-button" onClick={this.openMap}>show this finding in a map</button>
+          <button className="open-maps-button" onClick={this.openMap}>Open in a map</button>
         </div>}
+
+        <Link to="/listings" exact={true}>Return to Listings</Link>
       </div>
     );
   }

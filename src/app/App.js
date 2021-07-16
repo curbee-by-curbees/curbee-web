@@ -23,37 +23,28 @@ class App extends Component {
           <main>
 
             <Switch>
-              {/* <Route path="/" exact={true}
-                render={routerProps => (
-                  <Home {...routerProps}/>
-                )}
-              /> */}
 
-              <Route path="/" exact={true}
-                render={routerProps => (
-                  <AuthPage {...routerProps}/>
-                )}
-              />
+              <Route path="/" exact={true} render={routerProps => (
+                <AuthPage {...routerProps}/>
+              )}/>
 
-              <Route path="/listings" exact={true}
-                render={routerProps => (
-                  <ListingsPage {...routerProps}/>
-                )}
-              />
+              <Route path="/auth" exact={true} ender={routerProps => (
+                <AuthPage {...routerProps}/>
+              )}/>
 
-              <Route path="/listings/:id"
-                render={routerProps => (
-                  <ListingDetail {...routerProps}/>
-                )}
-              />
+              <Route path="/listings" exact={true} render={routerProps => (
+                <ListingsPage {...routerProps}/>
+              )}/>
 
-              <Route path="/settings"
-                render={routerProps => (
-                  <Settings {...routerProps}/>
-                )}
-              />
+              <Route path="/listings/:id"render={routerProps => (
+                <ListingDetail {...routerProps}/>
+              )}/>
 
-              <Redirect to="/" />
+              <Route path="/settings" render={routerProps => (
+                <Settings {...routerProps}/>
+              )}/>
+
+              <Redirect to="/"/>
 
             </Switch>
           </main>

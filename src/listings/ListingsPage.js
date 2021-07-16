@@ -120,7 +120,7 @@ export default class ListingsPage extends Component {
     return (
       <div className="ListingsPage">
         <button className='add-obs-button' hidden={showFindForm} onClick={this.showFindForm} >Add a Find</button>
-        {showFindForm && <form className="add-find-form" onSubmit={this.postFind}>
+        {showFindForm && <form className="add-find-form" onSubmit={e => e.preventDefault()}>
           <label className="title">Title:
             <input type="text" value={title} name="title" title="title" onChange={this.handleChange} placeholder="title"/>
           </label>
@@ -161,7 +161,7 @@ export default class ListingsPage extends Component {
             <input title="tags" value={tags} onChange={this.handleTagsChange} type="text" placeholder="tags"/>
           </label>
 
-          <button className="sub-btn" type="submit">Submit</button>
+          <button className="sub-btn" type="submit" onClick={this.postFind}>Submit</button>
         </form>}
 
         {showListings && <ul>
