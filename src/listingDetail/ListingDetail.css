@@ -1,0 +1,13 @@
+.ListingDetail img {
+  width: 40vh;
+}
+
+.ListingDetail h2 {
+  font-size: 25px;
+  text-align: center;
+  margin: 5px;
+}
+
+.ListingDetail div {
+  margin: 5px
+}
