@@ -25,7 +25,7 @@ class App extends Component {
             <Switch>
 
               <Route path="/" exact={true} render={routerProps => (
-                <Redirect to="/auth" {...routerProps}/>
+                <AuthPage {...routerProps}/>
               )}/>
 
               <Route path="/auth" exact={true} ender={routerProps => (
