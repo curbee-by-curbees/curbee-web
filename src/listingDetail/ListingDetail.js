@@ -1,5 +1,6 @@
 import { Component } from 'react';
-import { getFind, claimFind } from '../utils/curbee-api';
+import { getFind, claimFind, getLocation } from '../utils/curbee-api';
+import { Link } from 'react-router-dom';
 import './ListingDetail.css';
 
 
@@ -7,7 +8,8 @@ export default class ListingDetail extends Component {
   state = {
     find: null,
     showButton: true,
-    showDiv: false
+    showDiv: false,
+    location: null
   }
 
   async componentDidMount() {
@@ -15,7 +17,9 @@ export default class ListingDetail extends Component {
 
     try {
       const find = await getFind(match.params.id);
-      this.setState({ find: find, showButton: !find.isClaimed, showDiv: find.isClaimed });
+      const location = await getLocation({ latitude: find.latitude, longitude: find.longitude });
+      console.log(find);
+      this.setState({ find, location,  showButton: !find.isClaimed, showDiv: find.isClaimed });
     }
     catch (err) {
       console.log(err.message);
@@ -45,16 +49,20 @@ export default class ListingDetail extends Component {
   }
 
   render() {
-    const { find } = this.state;
+    const { find, location } = this.state;
 
     return (
       <div className="ListingDetail">
         {find && <div>
           <h2>{find.title}</h2>
           <img src={find.photos && find.photos[0] && find.photos[0].photo} alt={find.title}/>
-          <span>{find.city}</span>
-          <span>{find.category}</span>
-          <span>{find.tags}</span>
+          <div>Street: {location.street}</div>
+          <div>City: {location.city}</div>
+          <div>State: {location.state}</div>
+          <div>Category: {find.category}</div>
+          <div>Tags: {find.tags}</div>
+          <a href={'https://www.openstreetmap.org/#map=18/' + find.latitude + '/' + find.longitude}>Map</a><br/>
+          <Link to="/listings" exact={true}>Return to Listings</Link>
         </div>}
         <button className="claim" onClick={this.handleClaimed} style={{ visibility: this.state.showButton ? 'visible' : 'hidden' }}>I claimed this find</button>
         <div id="claimed" style={{ visibility: this.state.showDiv ? 'visible' : 'hidden' }}>Claimed</div>
