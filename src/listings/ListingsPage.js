@@ -100,6 +100,7 @@ export default class ListingsPage extends Component {
   handleChange = e => {
     const obj = {};
     obj[e.target.name] = e.target.value;
+    console.log(obj);
     this.setState(obj);
   }
 
