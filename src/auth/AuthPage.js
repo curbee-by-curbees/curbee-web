@@ -62,8 +62,7 @@ export default class AuthPage extends Component {
             <input name="phoneNumber" type="tel" required={true}
               value={phoneNumber} placeholder="Phone Number" onChange={this.handlePhoneNumberChange} />
           </label>
-        </p>
-        }
+        </p>}
 
         <p>
           <label>
@@ -80,9 +79,6 @@ export default class AuthPage extends Component {
               value={password} placeholder="Password" onChange={this.handlePasswordChange} />
           </label>
         </p>
-
-
-
 
         <p>
           <button type="submit" className="submit">Sign {isSignUp ? 'Up' : 'In'}</button>
