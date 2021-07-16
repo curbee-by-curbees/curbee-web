@@ -101,7 +101,6 @@ export default class ListingsPage extends Component {
   handleChange = e => {
     const obj = {};
     obj[e.target.name] = e.target.value;
-    console.log(obj);
     this.setState(obj);
   }
 
@@ -143,8 +142,18 @@ export default class ListingsPage extends Component {
 
           <label className="category">Listing Category:
             <select title="category" name="category" value={category} onChange={this.handleChange}>
-              <option value="furniture">furniture</option>
               <option value="art">art</option>
+              <option value="auto">auto</option>
+              <option value="books">books</option>
+              <option value="electronics">electronics</option>
+              <option value="furniture">furniture</option>
+              <option value="garden">garden</option>
+              <option value="household">household</option>
+              <option value="kitchen">kitchen</option>
+              <option value="outdoors">outdoors</option>
+              <option value="sporting">sporting</option>
+              <option value="toys">toys</option>
+              <option value="misc">misc</option>
             </select>
           </label>
 
