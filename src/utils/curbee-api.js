@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const API = process.env.CURBEE_API;
+const API = 'https://curbee-dev.herokuapp.com';
 
 export async function signUp(credentials) {
   const response = await request

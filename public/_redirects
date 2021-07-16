@@ -1,2 +1,2 @@
-/api/*  https://curbee-dev.herokuapp.com/:splat 200!
+/api/*  https://curbee-dev.herokuapp.com 200!
 /*      /index.html   200
