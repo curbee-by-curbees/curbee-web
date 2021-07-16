@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import Home from '../home/Home';
 import AuthPage from '../auth/AuthPage';
+import ListingsPage from '../listings/ListingsPage';
 import {
   BrowserRouter as Router,
   Route,
@@ -10,6 +10,8 @@ import {
   Redirect
 } from 'react-router-dom';
 import './App.css';
+import ListingDetail from '../listingDetail/ListingDetail';
+import Settings from '../settings/Settings';
 
 class App extends Component {
 
@@ -21,21 +23,33 @@ class App extends Component {
           <main>
 
             <Switch>
-              <Route path="/" exact={true}
+              {/* <Route path="/" exact={true}
                 render={routerProps => (
                   <Home {...routerProps}/>
                 )}
-              />
+              /> */}
 
-              <Route path="/auth" exact={true}
+              <Route path="/" exact={true}
                 render={routerProps => (
                   <AuthPage {...routerProps}/>
                 )}
               />
 
-              <Route path="/resources/:id"
+              <Route path="/listings" exact={true}
                 render={routerProps => (
-                  <div>Implement a page for id {routerProps.match.params.id}</div>
+                  <ListingsPage {...routerProps}/>
+                )}
+              />
+
+              <Route path="/listings/:id"
+                render={routerProps => (
+                  <ListingDetail {...routerProps}/>
+                )}
+              />
+
+              <Route path="/settings"
+                render={routerProps => (
+                  <Settings {...routerProps}/>
                 )}
               />
 

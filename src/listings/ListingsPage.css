@@ -1,0 +1,82 @@
+.ListingsPage {
+  padding-top: 0;
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-find-form button {
+  cursor: pointer;
+}
+
+.add-find-form button:active {
+  background-color: floralwhite;
+  color: royalblue;
+}
+
+.loc-btn, .image-upload-btn, .sub-btn {
+  border: 1px solid floralwhite;
+  background-color: rgb(104, 133, 219);
+  width: 80%;
+  border-radius: 5px;
+}
+
+.sub-btn {
+  width: 40%;
+}
+
+.add-find-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.add-find-form > label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 0.8rem;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.add-find-form label > div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+ .add-find-form > label > * {
+  width: 13rem;
+}
+/*
+.add-find-form .location input {
+  width: 5rem;
+}
+
+.add-find-form .photos input {
+  width: 10rem;
+} */
+
+.add-obs-button {
+  margin-top: 0;
+  padding-top: 0;
+  margin-bottom: 2rem;
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.add-find-form input, .add-find-form select {
+  margin-top: 3px;
+  margin-bottom: 8px;
+  width: 220px;
+}
+
+.add-find-form select {
+  width: 232px;
+}
+

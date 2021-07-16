@@ -3,26 +3,43 @@
   width: 100vw;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  height: 20vh;
+  background-color: royalblue;
 
 }
 
 .footer-logo {
-  font-size: 1rem;
-  padding: 3rem;
+  font-size: 0.8rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-description-wrapper {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-description {
+  width: 150px;
   font-size: 0.6rem;
-  padding-top: 3rem;
-  padding-right: 1rem;
   line-height: 0.8rem;
+  align-items: left;
 }
+
+
 
 .footer-link {
   font-size: 0.6rem;
   text-decoration: underline;
   margin-right: 0.5rem;
+}
+
+.Footer a {
+  color: floralwhite;
 }
 
 .red {
