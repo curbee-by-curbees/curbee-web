@@ -1,18 +1,21 @@
 import { Component } from 'react';
-import { getFind } from '../utils/curbee-api';
+import { Link } from 'react-router-dom';
+import { getFind, getLocation } from '../utils/curbee-api';
 import './ListingDetail.css';
 
 
 export default class ListingDetail extends Component {
   state = {
-    find: null
+    find: null,
+    location: null
   }
 
   async componentDidMount() {
     const { match } = this.props;
     try {
       const find = await getFind(match.params.id);
-      this.setState({ find: find });
+      const location = await getLocation({ latitude: find.latitude, longitude: find.longitude });
+      this.setState({ find: find, location:location });
     }
     catch (err) {
       console.log(err.message);
@@ -20,16 +23,20 @@ export default class ListingDetail extends Component {
   }
 
   render() {
-    const { find } = this.state;
+    const { find, location } = this.state;
 
     return (
       <div className="ListingDetail">
         {find && <div>
           <h2>{find.title}</h2>
           <img src={find.photos && find.photos[0] && find.photos[0].photo} alt={find.title}/>
-          <span>{find.city}</span>
-          <span>{find.category}</span>
-          <span>{find.tags}</span>
+          <div>Street: {location.street}</div>
+          <div>City: {location.city}</div>
+          <div>State: {location.state}</div>
+          <div>Category: {find.category}</div>
+          <div>Tags: {find.tags}</div>
+
+          <Link to="/listings" exact={true}>Return to Listings</Link>
         </div>}
       </div>
     );
