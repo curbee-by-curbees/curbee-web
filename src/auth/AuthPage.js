@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { signUp, login } from '../utils/curbee-api'; 
+import { signUp, login } from '../utils/curbee-api.js'; 
 import './AuthPage.css';
 
 export default class AuthPage extends Component {
@@ -50,7 +50,6 @@ export default class AuthPage extends Component {
     this.setState({ phoneNumber: target.value });
   }
   
-
   render() {
     const { isSignUp, username, password, phoneNumber, error } = this.state;
 
@@ -58,9 +57,14 @@ export default class AuthPage extends Component {
       <form className="AuthPage" onSubmit={this.handleSubmit}>
         {isSignUp && <p>
           <label>
-            
-            <input name="phoneNumber" type="tel" required={true}
-              value={phoneNumber} placeholder="Phone Number" onChange={this.handlePhoneNumberChange} />
+            <input 
+              name="phoneNumber" 
+              type="tel" 
+              required={true}
+              value={phoneNumber} 
+              placeholder="Phone Number" 
+              onChange={this.handlePhoneNumberChange} 
+            />
           </label>
         </p>}
 
@@ -68,7 +72,7 @@ export default class AuthPage extends Component {
           <label>
             
             <input name="username" value={username} required={true}
-              placeholder="Username" onChange={this.handleUsernameChange} />
+              placeholder="Username" onChange={this.handleUsernameChange}/>
           </label>
         </p>
 
@@ -76,7 +80,7 @@ export default class AuthPage extends Component {
           <label>
             
             <input name="password" type="password" required={true}
-              value={password} placeholder="Password" onChange={this.handlePasswordChange} />
+              value={password} placeholder="Password" onChange={this.handlePasswordChange}/>
           </label>
         </p>
 
