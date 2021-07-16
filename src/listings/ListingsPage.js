@@ -74,6 +74,7 @@ export default class ListingsPage extends Component {
         longitude,
         category,
         tags,
+        isClaimed: false,
         userId: window.localStorage.getItem('USERID')
       });
       
