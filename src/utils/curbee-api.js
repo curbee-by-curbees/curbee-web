@@ -60,6 +60,53 @@ export async function getFinds() {
   return response.body;
 }
 
+export async function getNearby(location) {
+  const response = await request
+    .post(API + '/api/v1/finds/nearby')
+    .ok(res => res.status < 500)
+    .send(location)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
+
+<<<<<<< HEAD
+export async function getFind(id) {
+  const response = await request  
+    .get(API + `/api/v1/finds/${id}`)
+=======
+export async function alertAboutFind(id) {
+  const response = await request
+    .get(API + `/api/v1/finds/${id}/alert`)
+>>>>>>> e0ac1466c295396a8f332afcc9ad406b939cfdcd
+    .ok(res => res.status < 500)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
+
+<<<<<<< HEAD
+export async function getFinds() {
+  const response = await request
+    .get(API + '/api/v1/finds')
+    .ok(res => res.status < 500)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
+
 export async function addFind(find) {
   const response = await request
     .post(API + '/api/v1/finds')
@@ -68,3 +115,33 @@ export async function addFind(find) {
 
   return response.body;
 }
+=======
+export async function addFind(find) {
+  const response = await request
+    .post(API + '/api/v1/finds')
+    .send(find)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  return response.body;
+}
+
+export async function addSpot(spot) {
+  const response = await request
+    .post(API + '/api/v1/spots')
+    .send(spot)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  return response.body;
+
+}
+
+export async function addPhoto(photo) {
+  const response = await request
+    .post(API + '/api/v1/photos')
+    .send(photo)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  return response.body;
+
+}
+>>>>>>> e0ac1466c295396a8f332afcc9ad406b939cfdcd

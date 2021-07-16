@@ -1,7 +1,6 @@
 import { Component } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import Home from '../home/Home';
 import AuthPage from '../auth/AuthPage';
 import ListingsPage from '../listings/ListingsPage';
 import {
@@ -12,6 +11,10 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import ListingDetail from '../listingDetail/ListingDetail';
+<<<<<<< HEAD
+=======
+import Settings from '../settings/Settings';
+>>>>>>> e0ac1466c295396a8f332afcc9ad406b939cfdcd
 
 class App extends Component {
 
@@ -23,13 +26,13 @@ class App extends Component {
           <main>
 
             <Switch>
-              <Route path="/" exact={true}
+              {/* <Route path="/" exact={true}
                 render={routerProps => (
                   <Home {...routerProps}/>
                 )}
-              />
+              /> */}
 
-              <Route path="/auth" exact={true}
+              <Route path="/" exact={true}
                 render={routerProps => (
                   <AuthPage {...routerProps}/>
                 )}
@@ -44,6 +47,12 @@ class App extends Component {
               <Route path="/listings/:id"
                 render={routerProps => (
                   <ListingDetail {...routerProps}/>
+                )}
+              />
+
+              <Route path="/settings"
+                render={routerProps => (
+                  <Settings {...routerProps}/>
                 )}
               />
 
