@@ -49,7 +49,7 @@ export async function getFind(id) {
 
 export async function claimFind(id) {
   const response = await request  
-    .put(API + `/api/v1/finds/${id}-claim`)
+    .patch(API + `/api/v1/finds/${id}`)
     .ok(res => res.status < 500)
     .set('Authorization', window.localStorage.getItem('TOKEN'));
 

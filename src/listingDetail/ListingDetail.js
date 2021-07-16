@@ -5,11 +5,15 @@ import './ListingDetail.css';
 
 export default class ListingDetail extends Component {
   state = {
-    find: null
+    find: null,
+    showButton: true,
+    showDiv: false
   }
 
   async componentDidMount() {
+
     const { match } = this.props;
+
     try {
       const find = await getFind(match.params.id);
       this.setState({ find: find });
@@ -17,14 +21,23 @@ export default class ListingDetail extends Component {
     catch (err) {
       console.log(err.message);
     }
+
+    fetch(`http://http://localhost:7890/api/v1/finds/${match.params.id}`)
+      .then(results => results.json())
+      .then(showButton => this.setState({ showButton: showButton }))
+      .then(showDiv => this.setState({ showDiv: showDiv }));
   }
 
   handleClaimed = async () => {
     const { find } = this.state;
 
     try {
-      const claimedTask = await claimFind(find.id);
-      this.setState({ find: claimedTask });
+      const claimedFind = await claimFind(find.id);
+      this.setState({ 
+        find: { ...claimedFind }, 
+        showButton: false, 
+        showDiv: true 
+      });
     }
     catch (err) {
       console.log(err);
@@ -44,7 +57,7 @@ export default class ListingDetail extends Component {
           <span>{find.tags}</span>
         </div>}
         <button className="claim" onClick={this.handleClaimed} style={{ visibility: this.state.showButton ? 'visible' : 'hidden' }}>I claimed this find</button>
-        <div id="claimed" >Claimed</div>
+        <div id="claimed" style={{ visibility: this.state.showDiv ? 'visible' : 'hidden' }}>Claimed</div>
       </div>
     );
   }
