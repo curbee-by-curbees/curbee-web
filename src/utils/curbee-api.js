@@ -1,6 +1,6 @@
 import request from 'superagent';
 
-const API = 'http://localhost:7890';
+const API = process.env.CURBEE_API;
 
 export async function signUp(credentials) {
   const response = await request
