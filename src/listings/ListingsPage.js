@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { addFind, addPhoto, getFinds } from '../utils/curbee-api.js';
+import { addFind, addPhoto, alertAboutFind, getNearby } from '../utils/curbee-api.js';
 import './ListingsPage.css';
 import Listing from './Listing';
 
@@ -19,7 +19,18 @@ export default class ListingsPage extends Component {
   };
 
   async componentDidMount() {
-    const finds = await getFinds();
+    navigator.geolocation.getCurrentPosition(this.getListings);
+  }
+
+  getListings = async pos => {
+    const { latitude, longitude } = pos.coords;
+
+    const finds = await getNearby({
+      latitude: latitude || 45.5051,
+      longitude: longitude || -122.6750,
+      radius: 10
+    });
+
     this.setState({ listings: finds });
   }
 
@@ -75,6 +86,10 @@ export default class ListingsPage extends Component {
         });
       });
 
+      // alert nearby phones of find
+      await alertAboutFind(newFind.id);
+
+      // redirect to that find's page
       history.push(`/listings/${newFind.id}`);
     }
     catch (err) {
@@ -85,6 +100,7 @@ export default class ListingsPage extends Component {
   handleChange = e => {
     const obj = {};
     obj[e.target.name] = e.target.value;
+    console.log(obj);
     this.setState(obj);
   }
 
@@ -112,7 +128,7 @@ export default class ListingsPage extends Component {
           <label className="photos">Photo URL:
             <div className="wrapper-h">
               <input type="text" value={url} name="url" title="image url" onChange={this.handleChange} placeholder="image url"/>
-              <button id="upload_widget" className="image-upload-btn cloudinary-button" onClick={this.showWidget}>Upload</button>
+              <button id="upload_widget" className="image-upload-btn" onClick={this.showWidget}>Upload</button>
             </div>
           </label>
 

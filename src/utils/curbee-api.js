@@ -73,6 +73,33 @@ export async function getFinds() {
   return response.body;
 }
 
+export async function getNearby(location) {
+  const response = await request
+    .post(API + '/api/v1/finds/nearby')
+    .ok(res => res.status < 500)
+    .send(location)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
+
+export async function alertAboutFind(id) {
+  const response = await request
+    .get(API + `/api/v1/finds/${id}/alert`)
+    .ok(res => res.status < 500)
+    .set('Authorization', window.localStorage.getItem('TOKEN'));
+
+  if (response.status === 400) {
+    throw response.body;
+  }
+
+  return response.body;
+}
+
 export async function addFind(find) {
   const response = await request
     .post(API + '/api/v1/finds')
