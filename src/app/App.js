@@ -11,10 +11,7 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import ListingDetail from '../listingDetail/ListingDetail';
-<<<<<<< HEAD
-=======
 import Settings from '../settings/Settings';
->>>>>>> e0ac1466c295396a8f332afcc9ad406b939cfdcd
 
 class App extends Component {
 
