@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { getFind } from '../utils/curbee-api';
+import { getFind, claimFind } from '../utils/curbee-api';
 import './ListingDetail.css';
 
 
@@ -19,6 +19,18 @@ export default class ListingDetail extends Component {
     }
   }
 
+  handleClaimed = async () => {
+    const { find } = this.state;
+
+    try {
+      const claimedTask = await claimFind(find.id);
+      this.setState({ find: claimedTask });
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
+
   render() {
     const { find } = this.state;
 
@@ -31,6 +43,8 @@ export default class ListingDetail extends Component {
           <span>{find.category}</span>
           <span>{find.tags}</span>
         </div>}
+        <button className="claim" onClick={this.handleClaimed} style={{ visibility: this.state.showButton ? 'visible' : 'hidden' }}>I claimed this find</button>
+        <div id="claimed" >Claimed</div>
       </div>
     );
   }
